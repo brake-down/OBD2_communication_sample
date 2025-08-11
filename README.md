@@ -8,4 +8,7 @@ Regardless of the data used, refer to this code when setting up
 
 Confirmed that the code works as shown in the image below
 
+sample video
+https://youtu.be/x6waisBggxk
+
 ![](./working.png)
