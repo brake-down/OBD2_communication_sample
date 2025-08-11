@@ -22,6 +22,8 @@ MCP_CAN CAN(SPI_CS_PIN);                                    // Set CS pin
 
 #define CAN_ID_PID          0x7DF
 
+#define BRAKE_PIN           A1
+
 void set_mask_filt()
 {
     // set mask, set both the mask to 0x3ff
@@ -86,6 +88,8 @@ void setup() {
     CAN.setMode(MCP_NORMAL);
     Serial.println("CAN init ok!");
     set_mask_filt();
+
+    pinMode(BRAKE_PIN, INPUT);
 }
 
 void loop() {
@@ -100,7 +104,11 @@ void loop() {
         Serial.print(__speed);
         Serial.println(" kmh");
     }
-    delay(500);
+
+    int isBrake = digitalRead(BRAKE_PIN);
+    Serial.print("brake pin : ");
+    Serial.println(isBrake);
+    delay(50);
 }
 
 // END FILE
